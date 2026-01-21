@@ -1,4 +1,4 @@
 <?php
-$file = file_get_contents("http://www.example.com/");
+$file = file_get_contents("./test.md");
 echo $file;
 ?>
