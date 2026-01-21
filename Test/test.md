@@ -4,9 +4,9 @@ Some text
 
 ## Now a smaller title
 
-```py
-code block
-oooo = 0
+```html
+<h1>Yahhooo!</h1> 
+<code>hii!</code>
 ```
 
 ### Tiniest title ever

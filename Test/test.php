@@ -19,12 +19,12 @@ foreach ($lines as $line_num => $line) {
             $output .= "<p>$line</p>";
         }
     } elseif ($mode == $CODE) {
-        if(str_starts_with($line, "```")){
+        if (str_starts_with($line, "```")) {
             $mode = $NONE;
-        }else{
-            $text = str_replace($line, "&", "&amp;");
-            $text = str_replace($text, "<", "&lt;");
-            $text = str_replace($text, ">", "&gt;");
+        } else {
+            $text = str_replace("&", "&amp;", $line);
+            $text = str_replace("<", "&lt;", $text);
+            $text = str_replace(">", "&gt;", $text);
             $output .= "$text\n";
         }
     }
