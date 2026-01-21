@@ -1,3 +1,4 @@
 <?php
-phpinfo();
-?>
+
+$file = file_get_contents("test.md");
+echo $file;
