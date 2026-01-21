@@ -11,7 +11,7 @@ $output = "
     <meta charset='UTF-8'>
     <meta name='viewport' content=\"width=device-width, initial-scale=1.0\">
     <title>Daniil Grydin</title>
-    <link rel=\"stylesheet\" href=\"/style.css\">
+    <link rel=\"stylesheet\" href=\"https://cs.tru.ca/~T00712793/style.css\">
 </head>
 <body>
 ";
