@@ -13,7 +13,8 @@ $output = "
     <title>Daniil Grydin</title>
     <link rel=\"stylesheet\" href=\"https://cs.tru.ca/~T00712793/style.css\">
 </head>
-<body>";
+<body>
+";
 foreach ($lines as $line_num => $line) {
     if ($mode == $NONE) {
         if (str_starts_with($line, "###")) {
