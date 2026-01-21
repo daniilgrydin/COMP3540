@@ -23,8 +23,8 @@ foreach ($lines as $line_num => $line) {
             $mode = $NONE;
         }else{
             $text = str_replace($line, "&", "&amp;");
-            $text = str_replace($line, "<", "&lt;");
-            $text = str_replace($line, ">", "&gt;");
+            $text = str_replace($text, "<", "&lt;");
+            $text = str_replace($text, ">", "&gt;");
             $output .= "$text\n";
         }
     }
