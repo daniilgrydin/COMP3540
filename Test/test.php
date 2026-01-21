@@ -1,4 +1,6 @@
 <?php
-$file = file_get_contents("./test.md");
-echo $file;
+$lines = file('./test.md');
+foreach ($lines as $line_num => $line) {
+    echo "Line #{$line_num}: " . htmlspecialchars($line);
+}
 ?>
