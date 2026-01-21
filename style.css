@@ -508,14 +508,14 @@ cite {
 dt {
   color: var(--text-light);
 }
-code,
+/* code,
 pre,
 pre span,
 kbd,
 samp {
   font-family: var(--mono-font);
   color: var(--code);
-}
+} */
 kbd {
   color: var(--preformatted);
   border: var(--border-width) solid var(--preformatted);
@@ -529,12 +529,12 @@ pre {
   padding: 1rem 1.4rem;
   overflow: auto;
 }
-pre code {
+/* pre code {
   color: var(--preformatted);
   background: 0 0;
   margin: 0;
   padding: 0;
-}
+} */
 progress {
   width: 100%;
 }
@@ -640,7 +640,7 @@ div.notice p:last-of-type {
   svg {
     break-inside: avoid;
   }
-  pre code {
+  /* pre code {
     white-space: pre-wrap;
-  }
+  } */
 }

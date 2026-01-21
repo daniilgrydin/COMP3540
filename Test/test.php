@@ -43,5 +43,5 @@ foreach ($lines as $line_num => $line) {
         }
     }
 }
-echo "$output<script src=\"prism.js\"></script></body>";
+echo "$output<script src=\"https://cs.tru.ca/~T00712793/prism.js\"></script></body>";
 ?>
