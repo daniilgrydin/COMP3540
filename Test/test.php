@@ -25,7 +25,7 @@ foreach ($lines as $line_num => $line) {
             $text = str_replace("&", "&amp;", $line);
             $text = str_replace("<", "&lt;", $text);
             $text = str_replace(">", "&gt;", $text);
-            $output .= "$text\n";
+            $output .= "$text<br>";
         }
     }
 }
