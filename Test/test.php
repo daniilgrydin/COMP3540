@@ -4,7 +4,17 @@ $NONE = 1;
 
 $lines = file('test.md');
 $mode = $NONE;
-$output = "";
+$output = "
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content=\"width=device-width, initial-scale=1.0\">
+    <title>Daniil Grydin</title>
+    <link rel=\"stylesheet\" href=\"/style.css\">
+</head>
+<body>
+";
 foreach ($lines as $line_num => $line) {
     if ($mode == $NONE) {
         if (str_starts_with($line, "###")) {
@@ -15,12 +25,14 @@ foreach ($lines as $line_num => $line) {
             $output .= "<h1>" . substr($line, 1) . "</h1>";
         } elseif (str_starts_with($line, "```")) {
             $mode = $CODE;
+            $output .= "<div class='code-snippet'>";
         } elseif (strlen($line) > 0) {
             $output .= "<p>$line</p>";
         }
     } elseif ($mode == $CODE) {
         if (str_starts_with($line, "```")) {
             $mode = $NONE;
+            $output .= "</div>";
         } else {
             $text = str_replace("&", "&amp;", $line);
             $text = str_replace("<", "&lt;", $text);
@@ -29,5 +41,5 @@ foreach ($lines as $line_num => $line) {
         }
     }
 }
-echo $output;
+echo "$output</body>";
 ?>
