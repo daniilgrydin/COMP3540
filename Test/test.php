@@ -12,6 +12,7 @@ $output = "
     <meta name='viewport' content=\"width=device-width, initial-scale=1.0\">
     <title>Daniil Grydin</title>
     <link rel=\"stylesheet\" href=\"https://cs.tru.ca/~T00712793/style.css\">
+    <link href=\"https://cs.tru.ca/~T00712793/prism.css\" rel=\"stylesheet\" />
 </head>
 <body>
 ";
@@ -25,14 +26,14 @@ foreach ($lines as $line_num => $line) {
             $output .= "<h1>" . substr($line, 1) . "</h1>";
         } elseif (str_starts_with($line, "```")) {
             $mode = $CODE;
-            $output .= "<div class='code-snippet'>";
+            $output .= "<pre><code>";
         } elseif (strlen($line) > 0) {
             $output .= "<p>$line</p>";
         }
     } elseif ($mode == $CODE) {
         if (str_starts_with($line, "```")) {
             $mode = $NONE;
-            $output .= "</div>";
+            $output .= "</code></pre>";
         } else {
             $text = str_replace("&", "&amp;", $line);
             $text = str_replace("<", "&lt;", $text);
@@ -41,5 +42,5 @@ foreach ($lines as $line_num => $line) {
         }
     }
 }
-echo "$output</body>";
+echo "$output<script src=\"prism.js\"></script></body>";
 ?>

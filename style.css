@@ -644,10 +644,3 @@ div.notice p:last-of-type {
     white-space: pre-wrap;
   }
 }
-
-.code{
-    background-color: #212121;
-    color:#efefef;
-    margin: 10px;
-    font-family: monospace;
-}
