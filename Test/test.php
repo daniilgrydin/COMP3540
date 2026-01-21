@@ -25,8 +25,9 @@ foreach ($lines as $line_num => $line) {
         } elseif (str_starts_with($line, "#")) {
             $output .= "<h1>" . substr($line, 1) . "</h1>";
         } elseif (str_starts_with($line, "```")) {
+            $language = substr($line, 3);
             $mode = $CODE;
-            $output .= "<pre><code>";
+            $output .= "<pre><code class=\"lanugage-$language\">";
         } elseif (strlen($line) > 0) {
             $output .= "<p>$line</p>";
         }

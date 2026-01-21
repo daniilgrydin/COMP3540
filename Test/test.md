@@ -5,8 +5,17 @@ Some text
 ## Now a smaller title
 
 ```html
-<h1>Yahhooo!</h1> 
-<code>hii!</code>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMP3540: Week 1</title>
+</head>
+<body>
+    Hello World!
+</body>
+</html>
 ```
 
 ### Tiniest title ever
