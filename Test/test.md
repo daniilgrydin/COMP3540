@@ -4,6 +4,7 @@
 
 E01
 
+```html
 <button id='tr1-display'>Display</button>
 <div id='tr1-pane-result' style='width:410px; border:1px solid black'>Result here!</div>
 <script>
@@ -13,11 +14,13 @@ E01
         document.getElementById("tr1-pane-result").innerHTML = 'Strong desire brings strong results.';
     }
 </script>
+```
 
 ---
 
 E02
 
+```html
 <script>
 function isdivisible(n, m){
     let result = n%m == 0;
@@ -25,11 +28,13 @@ function isdivisible(n, m){
 }
 isdivisible(prompt("number:"), 15);
 </script>
+```
 
 ---
 
 E03
 
+```html
 <script>
 {    
     let model = prompt("Enter a model name: ");
@@ -64,11 +69,13 @@ E03
     alert(car.print());  // test case for .print()
 }
 </script>
+```
 
 ---
 
 E04
 
+```html
 <script>
 {
     // 1st function
@@ -95,3 +102,4 @@ E04
     alert(average(data));  // test case for the second function with data
 }
 </script>
+```
