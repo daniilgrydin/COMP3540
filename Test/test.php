@@ -37,15 +37,15 @@ foreach ($lines as $line_num => $line) {
         if (str_starts_with($line, "```")) {
             $mode = $NONE;
             $output .= "</code></pre>";
-            $code = str_replace("'", "\"", $code);
-            $output .= "<button class=\"run-button\" onclick=\"document.getElementById('$block_index').innerHTML='';document.getElementById('$block_index').innerHTML = '$code'\">Run!</button>";
+            $code = str_replace("\"", "'", $code);
+            $output .= "<button class=\"run-button\" onclick=\"document.getElementById('$block_index').innerHTML = `$code`\">Run!</button>";
             $output .= "<div id=\"$block_index\" class=\"example\" style=\"width=100%;padding:10px;\">Run result will be here...</div>";
         } else {
             $text = str_replace("&", "&amp;", $line);
             $text = str_replace("<", "&lt;", $text);
             $text = str_replace(">", "&gt;", $text);
             $output .= "$text<br>";
-            $code .= "$text\n";
+            $code .= "$text";
         }
     }
 }
