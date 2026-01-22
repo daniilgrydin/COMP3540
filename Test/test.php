@@ -50,7 +50,7 @@ foreach ($lines as $line_num => $line) {
                 $function_calls = $function_calls . "$function_name();";
             }
             $output .= "<button class=\"run-button\" onclick=\"document.getElementById('$block_index').innerHTML = `$snippet_code`;$function_calls\">Run!</button>";
-            $output .= "<div id=\"$block_index\" class=\"example\" style=\"width=70%;padding:10px;\">Run result will be here...</div>";
+            $output .= "<div id=\"$block_index\" class=\"example\" style=\"width:70%;padding:10px;\">Run result will be here...</div>";
             $snippet_code = "";
         } else {
             $snippet_code = $snippet_code . $line;
