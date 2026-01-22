@@ -41,7 +41,7 @@ foreach ($lines as $line_num => $line) {
             $output .= "<button class=\"run-button\" onclick=\"document.getElementById('$block_index').innerHTML = `$snippet_code`\">Run!</button>";
             $output .= "<div id=\"$block_index\" class=\"example\" style=\"width=100%;padding:10px;\">Run result will be here...</div>";
         } else {
-            $snippet_code .= "$line";
+            $snippet_code .= $line;
             $text = str_replace("&", "&amp;", $line);
             $text = str_replace("<", "&lt;", $text);
             $text = str_replace(">", "&gt;", $text);
