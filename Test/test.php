@@ -29,7 +29,7 @@ foreach ($lines as $line_num => $line) {
             $mode = $CODE;
             $output .= "<pre><code class=\"language-$language\">";
         } elseif (str_starts_with($line, "---")){
-            $output .= "<hr>"
+            $output .= "<hr>";
         } elseif (strlen($line) > 1) {
             $output .= "<p>$line</p>";
         }
