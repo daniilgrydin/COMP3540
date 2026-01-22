@@ -38,6 +38,7 @@ foreach ($lines as $line_num => $line) {
             $mode = $NONE;
             $output .= "</code></pre>";
             $snippet_code = str_replace("\"", "'", $snippet_code);
+            $snippet_code = str_replace("\n", " ", $snippet_code);
             $output .= "<button class=\"run-button\" onclick=\"document.getElementById('$block_index').innerHTML = `$snippet_code`\">Run!</button>";
             $output .= "<div id=\"$block_index\" class=\"example\" style=\"width=100%;padding:10px;\">Run result will be here...</div>";
         } else {
