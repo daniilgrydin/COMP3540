@@ -33,7 +33,7 @@ foreach ($lines as $line_num => $line) {
         }
     } elseif ($mode == $CODE) {
         $block_index = bin2hex(random_bytes(4));
-        $snippet_code = "";
+        $snippet_code = "<p>hi</p>";
         if (str_starts_with($line, "```")) {
             $mode = $NONE;
             $output .= "</code></pre>";
