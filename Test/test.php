@@ -35,12 +35,13 @@ foreach ($lines as $line_num => $line) {
         }
     } elseif ($mode == $CODE) {
         $block_index = bin2hex(random_bytes(4));
-        $snippet_code = "<p>hi</p>";
+        $snippet_code = "";
         if (str_starts_with($line, "```")) {
             $mode = $NONE;
             $output .= "</code></pre>";
-            $snippet_code = str_replace("\"", "'", $snippet_code);
-            $snippet_code = str_replace("\n", " ", $snippet_code);
+            $output .= "<p>The total code is ".strlen($snippet_code)." characters long.</p>";
+            // $snippet_code = str_replace("\"", "'", $snippet_code);
+            // $snippet_code = str_replace("\n", " ", $snippet_code);
             $output .= "<button class=\"run-button\" onclick=\"document.getElementById('$block_index').innerHTML = `$snippet_code`\">Run!</button>";
             $output .= "<div id=\"$block_index\" class=\"example\" style=\"width=70%;padding:10px;\">Run result will be here...</div>";
         } else {
