@@ -19,6 +19,7 @@ $output = "
 $snippet_code = "";
 $executable_code = "";
 $write_executable = false;
+$functions_to_do = [];
 foreach ($lines as $line_num => $line) {
     if ($mode == $NONE) {
         if (str_starts_with($line, "###")) {
@@ -44,7 +45,11 @@ foreach ($lines as $line_num => $line) {
             // $output .= "<p>The total code is ".strlen($snippet_code)." characters long.</p>";
             $snippet_code = str_replace("\"", "'", $snippet_code);
             $snippet_code = str_replace("\n", " ", $snippet_code);
-            $output .= "<button class=\"run-button\" onclick=\"document.getElementById('$block_index').innerHTML = `$snippet_code`\">Run!</button>";
+            $function_calls = "";
+            foreach($functions_to_do as $_ => $function_name){
+                $function_calls = $function_calls . "$function_name();";
+            }
+            $output .= "<button class=\"run-button\" onclick=\"document.getElementById('$block_index').innerHTML = `$snippet_code`;$function_calls\">Run!</button>";
             $output .= "<div id=\"$block_index\" class=\"example\" style=\"width=70%;padding:10px;\">Run result will be here...</div>";
             $snippet_code = "";
         } else {
@@ -53,12 +58,17 @@ foreach ($lines as $line_num => $line) {
             $text = str_replace("<", "&lt;", $text);
             $text = str_replace(">", "&gt;", $text);
             $output .= "$text<br>";
-            if (str_contains($line, '<script>'))
+            if (str_contains($line, '<script>')){
                 $write_executable = true;
-            elseif (str_contains($line, '</script>'))
+                $function_name = bin2hex(random_bytes(4));
+                $executable_code = $executable_code . "function f$function_name (){";
+                $functions_to_do[] = $function_name;
+            }elseif (str_contains($line, '</script>')){
                 $write_executable = false;
-            elseif ($write_executable)
+                $executable_code = $executable_code . "}\n";
+            }elseif ($write_executable){
                 $executable_code = $executable_code . $line;
+            }
         }
     }
 }
