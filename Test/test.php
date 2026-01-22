@@ -32,13 +32,14 @@ foreach ($lines as $line_num => $line) {
             $output .= "<p>$line</p>";
         }
     } elseif ($mode == $CODE) {
+        $block_index = bin2hex(random_bytes(4));
         $code = "";
         if (str_starts_with($line, "```")) {
             $mode = $NONE;
             $output .= "</code></pre>";
             $code = str_replace("\"", "'", $code);
-            $output .= "<button class=\"run-button\" onclick=\"document.getElementById('content').innerHTML='';document.getElementById('content').innerHTML = '$code'\">Run!</button>";
-            $output .= "<div class=\"example\" style=\"width=100%;padding:10px;\">Run result will be here...</div>";
+            $output .= "<button class=\"run-button\" onclick=\"document.getElementById('$block_index').innerHTML='';document.getElementById('$block_index').innerHTML = '$code'\">Run!</button>";
+            $output .= "<div id=\"$block_index\" class=\"example\" style=\"width=100%;padding:10px;\">Run result will be here...</div>";
         } else {
             $text = str_replace("&", "&amp;", $line);
             $text = str_replace("<", "&lt;", $text);
