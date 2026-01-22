@@ -17,6 +17,8 @@ $output = "
 <body>
 ";
 $snippet_code = "";
+$executable_code = "";
+$write_executable = false;
 foreach ($lines as $line_num => $line) {
     if ($mode == $NONE) {
         if (str_starts_with($line, "###")) {
@@ -29,7 +31,7 @@ foreach ($lines as $line_num => $line) {
             $language = substr($line, 3);
             $mode = $CODE;
             $output .= "<pre><code class=\"language-$language\">";
-        } elseif (str_starts_with($line, "---")){
+        } elseif (str_starts_with($line, "---")) {
             $output .= "<hr>";
         } elseif (strlen($line) > 1) {
             $output .= "<p>$line</p>";
@@ -46,13 +48,21 @@ foreach ($lines as $line_num => $line) {
             $output .= "<div id=\"$block_index\" class=\"example\" style=\"width=70%;padding:10px;\">Run result will be here...</div>";
             $snippet_code = "";
         } else {
-            $snippet_code = $snippet_code.$line;
-            $text = str_replace("&", "&amp;", $line);
-            $text = str_replace("<", "&lt;", $text);
-            $text = str_replace(">", "&gt;", $text);
-            $output .= "$text<br>";
+            if (str_contains($line, '<script>'))
+                $write_executable = true;
+            elseif (str_contains($line, '</script>'))
+                $write_executable = false;
+            elseif ($write_executable)
+                $executable_code = $executable_code . $line;
+            else {
+                $snippet_code = $snippet_code . $line;
+                $text = str_replace("&", "&amp;", $line);
+                $text = str_replace("<", "&lt;", $text);
+                $text = str_replace(">", "&gt;", $text);
+                $output .= "$text<br>";
+            }
         }
     }
 }
-echo "$output<script src=\"https://cs.tru.ca/~T00712793/prism.js\"></script></body>";
+echo "$output<script src=\"https://cs.tru.ca/~T00712793/prism.js\"></script><script>$executable_code</script></body>";
 ?>
