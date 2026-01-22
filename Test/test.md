@@ -14,6 +14,8 @@ Some text
 </head>
 <body>
     Hello World!
+    <div id="content"></div>
+    <button onclick="document.getElementById('content').innerHTML = 'Hi im daniel'">
 </body>
 </html>
 ```
