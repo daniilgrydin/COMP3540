@@ -28,6 +28,8 @@ foreach ($lines as $line_num => $line) {
             $language = substr($line, 3);
             $mode = $CODE;
             $output .= "<pre><code class=\"language-$language\">";
+        } elseif (str_starts_with($line, "---")){
+            $output .= "<hr>"
         } elseif (strlen($line) > 1) {
             $output .= "<p>$line</p>";
         }
@@ -40,7 +42,7 @@ foreach ($lines as $line_num => $line) {
             $snippet_code = str_replace("\"", "'", $snippet_code);
             $snippet_code = str_replace("\n", " ", $snippet_code);
             $output .= "<button class=\"run-button\" onclick=\"document.getElementById('$block_index').innerHTML = `$snippet_code`\">Run!</button>";
-            $output .= "<div id=\"$block_index\" class=\"example\" style=\"width=100%;padding:10px;\">Run result will be here...</div>";
+            $output .= "<div id=\"$block_index\" class=\"example\" style=\"width=70%;padding:10px;\">Run result will be here...</div>";
         } else {
             $snippet_code .= $line;
             $text = str_replace("&", "&amp;", $line);
