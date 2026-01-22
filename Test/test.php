@@ -40,6 +40,7 @@ foreach ($lines as $line_num => $line) {
             $code = str_replace("\"", "'", $code);
             $output .= "<button class=\"run-button\" onclick=\"document.getElementById('$block_index').innerHTML = `$code`\">Run!</button>";
             $output .= "<div id=\"$block_index\" class=\"example\" style=\"width=100%;padding:10px;\">Run result will be here...</div>";
+            $output .= `<pre><code>$code</code></pre>`;
         } else {
             $text = str_replace("&", "&amp;", $line);
             $text = str_replace("<", "&lt;", $text);
