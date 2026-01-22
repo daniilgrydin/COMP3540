@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gridinsoft</title>
 </head>
 <body>
-    Test Test Test
+    <h1>Daniil Grydin T00712793</h1>
+    <pre>
+        <button id='tr1-display'>Display</button>
+        <div id='tr1-pane-result' style='width:410px; border:1px solid black'>Result here!</div>
+        <script>
+            document.getElementById('tr1-display').addEventListener('click', function(){display1();});
+            
+            function display1() {
+                document.getElementById("tr1-pane-result").innerHTML = 'Strong desire brings strong results.';
+            }
+        </script>
+    </pre>
 </body>
 </html>

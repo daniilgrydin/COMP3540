@@ -28,7 +28,7 @@ foreach ($lines as $line_num => $line) {
             $language = substr($line, 3);
             $mode = $CODE;
             $output .= "<pre><code class=\"language-$language\">";
-        } elseif (strlen($line) > 0) {
+        } elseif (strlen($line) > 1) {
             $output .= "<p>$line</p>";
         }
     } elseif ($mode == $CODE) {
