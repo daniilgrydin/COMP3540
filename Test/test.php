@@ -48,19 +48,17 @@ foreach ($lines as $line_num => $line) {
             $output .= "<div id=\"$block_index\" class=\"example\" style=\"width=70%;padding:10px;\">Run result will be here...</div>";
             $snippet_code = "";
         } else {
+            $snippet_code = $snippet_code . $line;
+            $text = str_replace("&", "&amp;", $line);
+            $text = str_replace("<", "&lt;", $text);
+            $text = str_replace(">", "&gt;", $text);
+            $output .= "$text<br>";
             if (str_contains($line, '<script>'))
                 $write_executable = true;
             elseif (str_contains($line, '</script>'))
                 $write_executable = false;
             elseif ($write_executable)
                 $executable_code = $executable_code . $line;
-            else {
-                $snippet_code = $snippet_code . $line;
-                $text = str_replace("&", "&amp;", $line);
-                $text = str_replace("<", "&lt;", $text);
-                $text = str_replace(">", "&gt;", $text);
-                $output .= "$text<br>";
-            }
         }
     }
 }
