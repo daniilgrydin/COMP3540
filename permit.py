@@ -19,4 +19,4 @@ def recursive_permission(directory = "./"):
 
 recursive_permission()
 print("Done!")
-print(f"Finished with \033[1m{file_count} files\033[0m and \033[1m{dir_count} directories\033[0m.")
+print("Finished with \033[1m" + str(file_count) + " files\033[0m and \033[1m" + str(dir_count) + " directories\033[0m.")
