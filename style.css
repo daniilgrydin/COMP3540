@@ -7,31 +7,31 @@
   --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   --standard-border-radius: 5px;
   --border-width: 1px;
-  --bg: #fff;
-  --accent-bg: #f5f7ff;
-  --text: #212121;
-  --text-light: #585858;
-  --border: #898ea4;
-  --accent: #0d47a1;
-  --accent-hover: #1266e2;
+  --bg: #FFF7E5;
+  --accent-bg: #FFEDDB;
+  --text: #131323;
+  --text-light: #282944;
+  --border: #FFC12D;
+  --accent: #EB3F6E;
+  --accent-hover: #EF5A6F;
   --accent-text: var(--bg);
-  --code: #d81b60;
-  --preformatted: #444;
+  --code: #FFC12D;
+  --preformatted: #65589C;
   --marked: #fd3;
-  --disabled: #efefef;
+  --disabled: #D4BDAC;
 }
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --bg: #212121;
-    --accent-bg: #2b2b2b;
-    --text: #dcdcdc;
-    --text-light: #ababab;
-    --accent: #ffb300;
-    --accent-hover: #ffe099;
+    --bg: #282944;
+    --accent-bg: #393A65;
+    --text: #FFEDDB;
+    --text-light: #FFF7E5;
+    --accent: #FFC12D;
+    --accent-hover: #FFDC39;
     --accent-text: var(--bg);
-    --code: #f06292;
-    --preformatted: #ccc;
+    --code: #EF5A6F;
+    --preformatted: #D4BDAC;
     --disabled: #111;
   }
   img,

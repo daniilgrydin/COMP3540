@@ -2,7 +2,7 @@
 
 ---
 
-E01
+## E01
 
 ```html
 <button id='tr1-display'>Display</button>
@@ -18,7 +18,7 @@ E01
 
 ---
 
-E02
+## E02
 
 ```html
 <script>
@@ -32,7 +32,7 @@ isdivisible(prompt("number:"), 15);
 
 ---
 
-E03
+## E03
 
 ```html
 <script>
@@ -73,7 +73,7 @@ E03
 
 ---
 
-E04
+## E04
 
 ```html
 <script>
