@@ -51,6 +51,7 @@ foreach ($lines as $line_num => $line) {
             foreach($functions_to_do as $_ => $function_name){
                 $function_calls = $function_calls . "f$function_name();";
             }
+            $functions_to_do = [];
             $output .= "<button class=\"run-button\" onclick=\"document.getElementById('$block_index').innerHTML = `$display_snippet`;$function_calls\">Run!</button>";
             $output .= "<div id=\"$block_index\" class=\"example\" style=\"width:70%;padding:10px;\">Run result will be here...</div>";
             $snippet_code = "";
