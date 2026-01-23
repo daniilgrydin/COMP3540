@@ -6,7 +6,7 @@ dir_count = 0
 def recursive_permission(dir = "./"):
     global file_count, dir_count
     for file_path in os.listdir(dir):
-        file_path = dir + file_path
+        file_path = dir + "/" + file_path
         if os.path.isdir(file_path):
             dir_count += 1
             os.chmod(file_path, 0o711)
