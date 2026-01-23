@@ -20,7 +20,7 @@ $snippet_code = "";
 $executable_code = "";
 $write_executable = false;
 $functions_to_do = [];
-$show_parts = "";
+$display_snippet = "";
 foreach ($lines as $line_num => $line) {
     if ($mode == $NONE) {
         if (str_starts_with($line, "###")) {
@@ -33,7 +33,7 @@ foreach ($lines as $line_num => $line) {
             $language = substr($line, 3);
             $mode = $CODE;
             $output .= "<pre><code class=\"language-$language\">";
-            $show_parts = "";
+            $display_snippet = "";
         } elseif (str_starts_with($line, "---")) {
             $output .= "<hr>";
         } elseif (strlen($line) > 1) {
@@ -45,13 +45,13 @@ foreach ($lines as $line_num => $line) {
             $mode = $NONE;
             $output .= "</code></pre>";
             // $output .= "<p>The total code is ".strlen($snippet_code)." characters long.</p>";
-            $showparts = str_replace("\"", "'", $showparts);
-            $showparts = str_replace("\n", " ", $showparts);
+            $display_snippet = str_replace("\"", "'", $display_snippet);
+            $display_snippet = str_replace("\n", " ", $display_snippet);
             $function_calls = "";
             foreach($functions_to_do as $_ => $function_name){
                 $function_calls = $function_calls . "$function_name();";
             }
-            $output .= "<button class=\"run-button\" onclick=\"document.getElementById('$block_index').innerHTML = `$showparts`;$function_calls\">Run!</button>";
+            $output .= "<button class=\"run-button\" onclick=\"document.getElementById('$block_index').innerHTML = `$display_snippet`;$function_calls\">Run!</button>";
             $output .= "<div id=\"$block_index\" class=\"example\" style=\"width:70%;padding:10px;\">Run result will be here...</div>";
             $snippet_code = "";
         } else {
@@ -71,7 +71,7 @@ foreach ($lines as $line_num => $line) {
             }elseif ($write_executable){
                 $executable_code = $executable_code . $line;
             }else{
-                $show_parts = $show_parts . $line;
+                $display_snippet = $display_snippet . $line;
             }
         }
     }
