@@ -1,8 +1,10 @@
-# Daniil Grydin
+# Daniil Grydin - T00712793
 
----
+## Assignment 2
 
-## E01
+
+
+### E01
 
 ```html
 <button id='tr1-display'>Display</button>
@@ -16,9 +18,9 @@
 </script>
 ```
 
----
 
-## E02
+
+### E02
 
 ```html
 <script>
@@ -30,9 +32,9 @@ isdivisible(prompt("number:"), 15);
 </script>
 ```
 
----
 
-## E03
+
+### E03
 
 ```html
 <script>
@@ -71,9 +73,7 @@ isdivisible(prompt("number:"), 15);
 </script>
 ```
 
----
-
-## E04
+### E04
 
 ```html
 <script>
