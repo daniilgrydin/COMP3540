@@ -3,10 +3,12 @@ import os
 file_count = 0
 dir_count = 0
 
-def recursive_permission(dir = "./"):
+def recursive_permission(directory = "./"):
     global file_count, dir_count
-    for file_path in os.listdir(dir):
-        file_path = dir + "/" + file_path
+    for file_path in os.listdir(directory):
+        if file_path.startswith("."):
+            continue
+        file_path = directory + "/" + file_path
         if os.path.isdir(file_path):
             dir_count += 1
             os.chmod(file_path, 0o711)
@@ -17,4 +19,4 @@ def recursive_permission(dir = "./"):
 
 recursive_permission()
 print("Done!")
-print("Finished with", file_count, "files and", dir, "directories.")
+print(f"Finished with \033[1m{file_count} files\033[0m and \033[1m{dir_count} directories\033[0m.")
