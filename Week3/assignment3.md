@@ -7,12 +7,10 @@
 ```html
 <style>
     #ddm {width: 50px;}
-    #ddm ul {list-style: none; padding: 0; background-color: bisque;}
+    #ddm ul {list-style: none; padding: 0; background-color: bisque; border: 1px solid black;display: none;margin: 0;position: absolute;top: 100%;}
     #ddm li {width: 120px;text-align: center;}
     #ddm li:hover {background-color: aqua;cursor: pointer;}
-    #ddm ul {border: 1px solid black;}
     #ddm {position: relative;}
-    #ddm > ul {display: none;margin: 0;position: absolute;top: 100%;padding: 0;left: 0;}
     #ddm:hover > ul {display: block;}
 </style>
 <div id="ddm">
@@ -51,12 +49,10 @@
 ```html
 <style>
     #ddm2 {width: 50px;}
-    #ddm2 ul {list-style: none; padding: 0; background-color: bisque;}
+    #ddm2 ul {list-style: none; padding: 0; background-color: bisque; border: 1px solid black;display: none;margin: 0;position: absolute;top: 100%;}
     #ddm2 li {width: 120px;text-align: center;}
     #ddm2 li:hover {background-color: aqua;cursor: pointer;}
-    #ddm2 ul {border: 1px solid black;}
     #ddm2 {position: relative;}
-    #ddm2 > ul {display: none;margin: 0;position: absolute;top: 100%;padding: 0;left: 0;}
     #ddm2:hover > ul {display: block;}
 </style>
 
@@ -87,12 +83,10 @@
 ```html
 <style>
     #ddm3 {width: 50px;}
-    #ddm3 ul {list-style: none; padding: 0; background-color: bisque;}
+    #ddm3 ul {list-style: none; padding: 0; background-color: bisque; border: 1px solid black;display: none;margin: 0;position: absolute;top: 100%;}
     #ddm3 li {width: 120px;text-align: center;}
     #ddm3 li:hover {background-color: aqua;cursor: pointer;}
-    #ddm3 ul {border: 1px solid black;}
     #ddm3 {position: relative;}
-    #ddm3 > ul {display: none;margin: 0;position: absolute;top: 100%;padding: 0;left: 0;}
     #ddm3:hover > ul {display: block;}
 </style>
 <div id="ddm3">
