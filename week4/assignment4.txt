@@ -1,0 +1,187 @@
+TRIAL 1
+
+<style>
+    #e1-layout {
+        position:relative;
+        height:300px;
+    }
+    #e1-navigation {
+        position:absolute;
+        height: 100%;
+        width: 100px;
+        background-color:Cyan;
+    }
+    #e1-content {
+        position:absolute;
+        left: 100px;
+        height: 100%;
+        width: calc(100% - 100px);
+        background-color:LightGrey;
+    }
+</style>
+<div id='e1-layout'>
+    <div id='e1-navigation'>
+        Let's not become weary in doing good,<br>
+        for at the proper time we will see a great outcome<br>
+        if we do not give up.
+    </div>
+    <div id='e1-content'>
+    </div>
+</div>
+
+----------------------------------------------------------------------
+
+TRIAL 2
+
+<style>
+    #e2-layout {
+        position:relative;
+        height:400px;
+    }
+    #e2-content {
+        width:800px; height:300px;
+        border:1px solid black;
+    }
+    #e2-blanket {
+        display:none;
+        position:absolute;
+        top:0;
+        background-color:Grey;
+        width:100%; height:100%;
+        z-index:998;
+    }
+    .e2-modal {
+        display:none;
+        width:250px;
+        height:200px;
+        position:absolute;
+        margin-left: calc(50% - 125px);
+        margin-top: auto;
+        border:1px solid black;
+        background-color:White;
+        z-index:999;
+    }
+</style>
+<div id='e2-layout'>
+    <div id='e2-navigation'>
+        <button id='e2-menuitem-signin'>Sign In</button><br>
+        <button id='e2-menuitem-signup'>Sign Up</button>
+    </div>
+    <div id='e2-content'>
+        Let's not become weary in doing good,<br>
+        for at the proper time we will see a great outcome<br>
+        if we do not give up.
+        <div id='e2-blanket'>
+        </div>
+        <div id='e2-box-signin' class='e2-modal'>
+            <h1>Sign In</h1>
+            <button id='e2-cancel-signin' type='button'>Cancel</button>
+        </div>
+    </div>
+</div>
+<script>
+    let blanket = document.getElementById("e2-blanket");
+    let signin = document.getElementById("e2-box-signin");
+    document.getElementById('e2-menuitem-signin').addEventListener("click", function (){
+        blanket.style.display = 'block';
+        signin.style.display = 'block';
+    })
+    document.getElementById('e2-cancel-signin').addEventListener("click", function (){
+        blanket.style.display = 'none';
+        signin.style.display = 'none';
+    })
+</script>
+
+----------------------------------------------------------------------
+
+TRIAL 3
+
+<style>
+    #e2-layout {
+        position:relative;
+        height:400px;
+    }
+    #e2-content {
+        width:800px; height:300px;
+        border:1px solid black;
+    }
+    #e2-blanket {
+        display:none;
+        position:absolute;
+        top:0;
+        background-color:Grey;
+        opacity: 0.5;
+        width:100%; height:100%;
+        z-index:998;
+    }
+    .e2-modal {
+        display:none;
+        width:250px;
+        height:200px;
+        position:absolute;
+        left: calc(50% - 125px);
+        top: calc(50% - 100px);
+        border:1px solid black;
+        background-color:White;
+        z-index:999;
+    }
+</style>
+<div id='e2-layout'>
+    <div id='e2-navigation'>
+        <button id='e2-menuitem-signin'>Sign In</button><br>
+        <button id='e2-menuitem-signup'>Sign Up</button>
+    </div>
+    <div id='e2-content'>
+        Let's not become weary in doing good,<br>
+        for at the proper time we will see a great outcome<br>
+        if we do not give up.
+        <div id='e2-blanket'>
+        </div>
+        <div id='e2-box-signin' class='e2-modal'>
+            <h1>Sign In</h1>
+            <button id='e2-cancel-signin' type='button'>Cancel</button>
+        </div>
+    </div>
+</div>
+<script>
+    let blanket = document.getElementById("e2-blanket");
+    let signin = document.getElementById("e2-box-signin");
+
+    function open_signin(){
+        blanket.style.display = 'block';
+        signin.style.display = 'block';
+    }
+
+    function close_signin(){
+        blanket.style.display = 'none';
+        signin.style.display = 'none';
+    }
+
+    document.getElementById('e2-menuitem-signin').addEventListener("click", open_signin);
+    document.getElementById('e2-cancel-signin').addEventListener("click", close_signin);
+    document.getElementById('e2-blanket').addEventListener("click", close_signin);
+</script>
+                        
+----------------------------------------------------------------------
+
+TRIAL 4
+
+<form method="post" action="w4_controller_1234.php">
+    <input type='hidden' name='page' value='StartPage'>  <!-- not visible to the user -->
+    <input type='hidden' value='SignUp'>  <!-- not visible to the user -->
+    Username:
+    <input type='text' name='username' required><br>
+    Password:
+    <input type='password' name="password" required><br>
+    Email:
+    <input type='email' name="email" required><br>
+    <input type="reset">  <!-- Reset button -->
+    <input type="button" value="Cancel" id="e2-cancel-button">  <!-- regular button for Cancel -->
+    <input type="submit">  <!-- Submit button -->
+</form>
+<script>
+document.getElementById('e2-cancel-button').addEventListener('click', function(){
+    alert('Cancelled');
+});
+</script>
+                            
