@@ -1,0 +1,59 @@
+<style>
+    #e2-layout {
+        position:relative;
+        height:400px;
+    }
+    #e2-content {
+        width:800px; height:300px;
+        border:1px solid black;
+    }
+    #e2-blanket {
+        display:none;
+        position:absolute;
+        top:0;
+        background-color:Grey;
+        width:100%; height:100%;
+        z-index:998;
+    }
+    .e2-modal {
+        display:none;
+        width:250px;
+        height:200px;
+        position:absolute;
+        margin-left: calc(50% - 125px);
+        margin-top: auto;
+        border:1px solid black;
+        background-color:White;
+        z-index:999;
+    }
+</style>
+<div id='e2-layout'>
+    <div id='e2-navigation'>
+        <button id='e2-menuitem-signin'>Sign In</button><br>
+        <button id='e2-menuitem-signup'>Sign Up</button>
+    </div>
+    <div id='e2-content'>
+        Let's not become weary in doing good,<br>
+        for at the proper time we will see a great outcome<br>
+        if we do not give up.
+        <div id='e2-blanket'>
+        </div>
+        <div id='e2-box-signin' class='e2-modal'>
+            <h1>Sign In</h1>
+            <button id='e2-cancel-signin' type='button'>Cancel</button>
+        </div>
+    </div>
+</div>
+<script>
+    let blanket = document.getElementById("e2-blanket");
+    let signin = document.getElementById("e2-box-signin");
+    document.getElementById('e2-menuitem-signin').addEventListener("click", function (){
+        blanket.style.display = 'block';
+        signin.style.display = 'block';
+    })
+    document.getElementById('e2-cancel-signin').addEventListener("click", function (){
+        blanket.style.display = 'none';
+        signin.style.display = 'none';
+    })
+</script>
+                            

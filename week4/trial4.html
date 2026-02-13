@@ -1,0 +1,19 @@
+<form method="post" action="w4_controller_1234.php">
+    <input type='hidden' name='page' value='StartPage'>  <!-- not visible to the user -->
+    <input type='hidden' value='SignUp'>  <!-- not visible to the user -->
+    Username:
+    <input type='text' name='username' required><br>
+    Password:
+    <input type='password' name="password" required><br>
+    Email:
+    <input type='email' name="email" required><br>
+    <input type="reset">  <!-- Reset button -->
+    <input type="button" value="Cancel" id="e2-cancel-button">  <!-- regular button for Cancel -->
+    <input type="submit">  <!-- Submit button -->
+</form>
+<script>
+document.getElementById('e2-cancel-button').addEventListener('click', function(){
+    alert('Cancelled');
+});
+</script>
+                            
