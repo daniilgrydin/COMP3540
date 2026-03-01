@@ -65,10 +65,10 @@
         <br>
         <img id='nav-send-message' class='nav-image' title='Send a message' src='icons/send.png'>
         <br>
-        <img id='nav-read-messages' class='nav-image' title='Read messages' src='icons/read.png'>
+        <img id='nav-read-messages' class='nav-image' title='Read messages' src='icons/email.png'>
         <br>
         <br>
-        <img id='nav-logout' class='nav-image' title='Account' src='icons/user.png'></img>
+        <img id='nav-logout' class='nav-image' title='Account' src='icons/human.png'></img>
         <form id='form-logout' method="POST" action="controller.php" style="display:none;">
             <input type='hidden' name='page' value='MainPage'>
             <input type='hidden' name='command' value='SignOut'>
