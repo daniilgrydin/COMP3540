@@ -1,7 +1,5 @@
 <?php
-// controller.php
 
-// Function to validate username and password
 function is_valid_user($username, $password) {
     if ($username === '3540' && $password === 'secret') {
         return true;
@@ -9,15 +7,11 @@ function is_valid_user($username, $password) {
     return false;
 }
 
-// When page is empty (user accesses controller directly)
 if (empty($_POST['page'])) {
     $display_modal_window = 'none';
     include('view_startpage.php');
     exit();
-}
-
-// When page is StartPage
-if ($_POST['page'] === 'StartPage') {
+}else if ($_POST['page'] === 'StartPage') {
 
     if ($_POST['command'] === 'SignIn') {
 
@@ -40,10 +34,7 @@ if ($_POST['page'] === 'StartPage') {
             exit();
         }
     }
-}
-
-// When page is MainPage
-if ($_POST['page'] === 'MainPage') {
+}else if ($_POST['page'] === 'MainPage') {
 
     if ($_POST['command'] === 'SignOut') {
 
