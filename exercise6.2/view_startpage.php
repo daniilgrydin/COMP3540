@@ -70,7 +70,7 @@
         <div id='layout-main-right'>
             <div id='content-right' class='layout-content'>
                 <br>
-                <img src='One TRU Logo.png' width='200px' height='50px' style='margin-left:50px'>
+                <img src='icons/TRU_Logo.png' width='200px' height='50px' style='margin-left:50px'>
                 <br>
                 <h1>See what's happening in the world</h1>
                 <br>

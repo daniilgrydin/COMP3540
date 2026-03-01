@@ -58,17 +58,17 @@
 
 <body style='margin:0'>
     <div id='layout-navigation'>
-        <img src='TRU_Logo.png' width='150px' height='80px' >
+        <img src='icons/TRU_Logo.png' width='150px' height='80px' >
         <br>
         <br>
-        <img id='nav-search-friends' class='nav-image' title='Search a friend' src='search.png' width='50px' height='50px' >
+        <img id='nav-search-friends' class='nav-image' title='Search a friend' src='icons/search.png' width='50px' height='50px' >
         <br>
-        <img id='nav-send-message' class='nav-image' title='Send a message' src='send.png'>
+        <img id='nav-send-message' class='nav-image' title='Send a message' src='icons/send.png'>
         <br>
-        <img id='nav-read-messages' class='nav-image' title='Read messages' src='read.png'>
+        <img id='nav-read-messages' class='nav-image' title='Read messages' src='icons/read.png'>
         <br>
         <br>
-        <img id='nav-logout' class='nav-image' title='Account' src='user.png'></img>
+        <img id='nav-logout' class='nav-image' title='Account' src='icons/user.png'></img>
         <form id='form-logout' method="POST" action="controller.php" style="display:none;">
             <input type='hidden' name='page' value='MainPage'>
             <input type='hidden' name='command' value='SignOut'>
@@ -87,6 +87,6 @@
 
 <script>
     document.getElementById('nav-logout').addEventListener('click', function() {
-        ????
+        document.getElementById('form-logout').submit();
     });
 </script>
