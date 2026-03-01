@@ -93,7 +93,7 @@ input[type="password"] {
 
     <!-- Navigation -->
     <div id="navigation">
-        <img src="TRU_Logo.png">
+        <img src="icons/TRU_Logo.png">
         <h1>Join TRU Messenger</h1>
         <button id="menuitem-login">Log In</button>
     </div>
