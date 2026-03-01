@@ -1,179 +1,170 @@
-<!DOCTYPE html>
+<?php
+if (!isset($display_modal_window)) $display_modal_window = 'none';
+?>
 
+<!DOCTYPE html>
 <html>
 <head>
-    <title>TRU CS Messenger</title>
-    <style>
-        #layout-main {
-            position:relative; top:0; left:0;
-            width:100vw; height:100vh; 
-        }
-        #layout-main-left {
-            position:absolute; top:0; left:0;
-            width:50%; height:100%; 
-            background-color:LightGray; 
-        }
-        #layout-main-right {
-            position:absolute; 
-            top:0; left:50%;
-            width:50%; height:100%; 
-            background-color:SkyBlue; 
-        }
-        .layout-content {
-            width:80%;
-            position:absolute;
-            left:calc(50% - 40%);
-        }
-        
-        .modal-window {
-            width:400px; height:250px;
-            border:1px solid black;
-            display:none;
-            background-color:White;
-            position:fixed;
-            top:calc(50vh - 125px); left:calc(50vw - 200px);
-            z-index:999;
-        }
-        #blanket {
-            display:none;
-            width:100vw; height:100vh;
-            position:fixed;
-            top:0; left:0;
-            z-index:998;
-            opacity:0.5;
-            background-color:Grey;
-        }
-        .modal-label-input {
-            display:inline-block;
-            width:100px;
-            margin-left:20px;
-        }
-    </style>
+<title>TRU CS Messenger</title>
+
+<style>
+:root {
+    --navigation-width: 400px;
+    --modal-width: 500px;
+    --modal-height: 300px;
+    --distance: 50px;
+    font-family: 'Courier New', Courier, monospace;
+}
+#layout {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+#navigation {
+    position: absolute;
+    height: 100%;
+    width: var(--navigation-width);
+    background-color: Grey;
+}
+#content {
+    position: absolute;
+    left: var(--navigation-width);
+    height: 100%;
+    width: calc(100% - var(--navigation-width));
+    background-color: skyblue;
+}
+#blanket {
+    display: none;
+    position: absolute;
+    top: 0;
+    background-color: Grey;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+}
+.modal {
+    display: none;
+    width: var(--modal-width);
+    height: var(--modal-height);
+    position: absolute;
+    left: calc(50% - var(--modal-width) / 2);
+    top: calc(50% - var(--modal-height) / 2);
+    border: 1px solid black;
+    background-color: White;
+    z-index: 999;
+}
+button {
+    width: calc(100% - 2 * var(--distance));
+    margin-left: var(--distance);
+    height: 60px;
+}
+h1 {
+    width: calc(100% - 2 * var(--distance));
+    padding-left: var(--distance);
+    text-align: center;
+}
+img {
+    padding-top: var(--distance);
+    padding-left: var(--distance);
+    width: calc(100% - 2 * var(--distance));
+}
+#content p {
+    margin-top: 30%;
+    font-size: 24pt;
+    padding-left: var(--distance);
+}
+input[type="text"],
+input[type="password"] {
+    width: 50%;
+    margin-left: 40px;
+}
+.modal-footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+</style>
 </head>
 
-<body style='margin:0'>
+<body style="margin:0">
 
-    <!-- Page Layout -->
-    
-    <div id='layout-main'>
-        <div id='layout-main-left'>
-            <div id='content-left' class='layout-content'>
-                <h2>Hear what people are questioning about</h2>
-                <h2>Join the conversation</h2>
-                <br>
-                <button id='menu-login' style='display:inline-block; width:100%; height:40px'>Login</button>
-                <br>
-                <br>
-                <button id='menu-signup' style='display:inline-block; width:100%; height:40px'>Sign Up</button>
-            </div>
-        </div>
-        <div id='layout-main-right'>
-            <div id='content-right' class='layout-content'>
-                <br>
-                <img src='icons/TRU_Logo.png' width='200px' height='50px' style='margin-left:50px'>
-                <br>
-                <h1>See what's happening in the world</h1>
-                <br>
-                <h2>Join TRU Messenger</h2>
-            </div>
-        </div>
+<div id="layout">
+
+    <!-- Navigation -->
+    <div id="navigation">
+        <img src="TRU_Logo.png">
+        <h1>Join TRU Messenger</h1>
+        <button id="menuitem-login">Log In</button>
     </div>
-    
-    <script>
-        let cleft = document.getElementById('content-left');
-        cleft.style.top = (cleft.parentElement.offsetHeight - cleft.offsetHeight) / 2 + "px";
-        window.addEventListener('resize', function() {
-            let cleft = document.getElementById('content-left');
-            cleft.style.top = (cleft.parentElement.offsetHeight - cleft.offsetHeight) / 2 + "px";
-        });
-        let cright = document.getElementById('content-right');
-        cright.style.top = (cright.parentElement.offsetHeight - cright.offsetHeight) / 2 + "px";
-        window.addEventListener('resize', function() {
-            let cright = document.getElementById('content-right');
-            cright.style.top = (cright.parentElement.offsetHeight - cright.offsetHeight) / 2 + "px";
-        });
-    </script>
-    
-    <!-- Modal Windows -->
-    
-    <div id='modal-login' class='modal-window'>
-        <h2 style='text-align:center'>Login to TRU Messenger</h2>
-        <br>
-        <form method='post' action='controller.php'>
-            <input type='hidden' name='page' value='StartPage'>
-            <input type='hidden' name='command' value='SignIn'>
-            <label class='modal-label-input' for='input-login-username'>Username:</label>
-            <input id='input-login-username' type='text' name='username'>
+
+    <!-- Content -->
+    <div id="content">
+        <p>
+            See what's happening in the world<br>
+            Hear what people are questioning about<br>
+            Join the conversation
+        </p>
+    </div>
+
+    <!-- Blanket -->
+    <div id="blanket"></div>
+
+    <!-- LOGIN MODAL -->
+    <div id="box-login" class="modal">
+        <h2 style="margin-left:40px;">Login to TRU Messenger</h2>
+
+        <form method="post" action="controller.php">
+            <input type="hidden" name="page" value="StartPage">
+            <input type="hidden" name="command" value="SignIn">
+
+            Username:
+            <input type="text" name="username">
+            <?php if (!empty($error_msg_username)) echo $error_msg_username; ?>
             <br><br>
-            <label class='modal-label-input' for='input-login-password'>Password:</label>
-            <input id='input-login-password' type='password' name='password'>
-            <br>
-            <button id='submit-modal-login' type='submit' style='position:absolute; bottom:10px; left:20px'>Submit</button>
-            <button id='cancel-modal-login' type='button' style='position:absolute; bottom:10px; right:20px'>Cancel</button>
+
+            Password:
+            <input type="password" name="password">
+            <?php if (!empty($error_msg_password)) echo $error_msg_password; ?>
+
+            <div class="modal-footer">
+                <input type="button" value="Cancel" id="login-cancel-button">
+                <input type="submit" value="Submit">
+            </div>
         </form>
     </div>
-    <div id='modal-signup' class='modal-window'>
-        <h2 style='text-align:center'>Sign up to TRU Messenger</h2>
-        <br>
-        <form method='post' action='controller.php'>
-            <input type='hidden' name='page' value='StartPage'>
-            <input type='hidden' name='command' value='SignUp'>
-            <label class='modal-label-input' for='input-signup-username'>Username:</label>
-            <input id='input-signup-username' type='text' name='username'>
-            <br><br>
-            <label class='modal-label-input' for='input-signup-password'>Password:</label>
-            <input id='input-signup-password' type='password' name='password'>
-            <br><br>
-            <label class='modal-label-input' for='input-signup-email'>Email:</label>
-            <input id='input-signup-email' type='text' name='email'></br>
-            <button id='submit-modal-signup' type='submit' style='position:absolute; bottom:10px; left:20px'>Submit</button>
-            <button id='cancel-modal-signup' type='button' style='position:absolute; bottom:10px; right:20px'>Cancel</button>
-        </form>
-    </div>
-    
-    <div id='blanket'></div>
-</body>
-</html>
+
+</div>
 
 <script>
-    document.getElementById("menu-login").addEventListener("click", function() {
-        document.getElementById("blanket").style.display = "block";
-        document.getElementById("modal-login").style.display = "block";
-    });
-    document.getElementById("cancel-modal-login").addEventListener("click", function() {
-        document.getElementById("blanket").style.display = "none";
-        document.getElementById("modal-login").style.display = "none";
-    });
+let blanket = document.getElementById("blanket");
+let login = document.getElementById("box-login");
 
-    document.getElementById("menu-signup").addEventListener("click", function() {
-        document.getElementById("blanket").style.display = "block";
-        document.getElementById("modal-signup").style.display = "block";
-    });
-    document.getElementById("cancel-modal-signup").addEventListener("click", function() {
-        document.getElementById("blanket").style.display = "none";
-        document.getElementById("modal-signup").style.display = "none";
-    });
+function open_login() {
+    blanket.style.display = "block";
+    login.style.display = "block";
+}
 
-    document.getElementById("blanket").addEventListener("click", function() {
-        document.getElementById("blanket").style.display = "none";
-        document.getElementById("modal-login").style.display = "none";
-        document.getElementById("modal-signup").style.display = "none";
-    });
-    
-    function display_login_modal() {
-        document.getElementById("blanket").style.display = "block";
-        document.getElementById("modal-login").style.display = "block";
-    }
-    
-    function display_signup_modal() {
-        document.getElementById("blanket").style.display = "block";
-        document.getElementById("modal-signup").style.display = "block";
-    }
-    
-    function no_modal() {
-        document.getElementById("blanket").style.display = "none";
-        document.getElementById("modal-login").style.display = "none";
-        document.getElementById("modal-signup").style.display = "none";
-    }
-    
+function close_all() {
+    blanket.style.display = "none";
+    login.style.display = "none";
+}
+
+document.getElementById("menuitem-login")
+        .addEventListener("click", open_login);
+
+document.getElementById("login-cancel-button")
+        .addEventListener("click", close_all);
+
+document.getElementById("blanket")
+        .addEventListener("click", close_all);
+
+<?php
+if ($display_modal_window === 'signin') {
+    echo "open_login();";
+}
+?>
 </script>
+
+</body>
+</html>
