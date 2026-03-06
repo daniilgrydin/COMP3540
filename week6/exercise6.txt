@@ -1,0 +1,86 @@
+TRIAL 1
+
+<?php
+    // In Controller,
+    
+    if (empty($_POST['page']))  {  // If the 'page' value is not sent using the 'post' method,
+        $display_modal_window = 'none';  // Let's pass 'none'
+        // include ('view_startpage.php');  // Let's assume this file is included. 
+        // exit();
+    }
+?>
+
+<div style='width=400px; height:300px; border:1px solid black;'>
+    <h1>TRU Messenger</h1>
+    <div id='tr-1-modal' style='width:300px; height:200px; border:1px solid blue; display:none; margin:10px;'>  <!-- modal window -->
+        <h2>Sign In</h2>
+        <form>
+            Username: <input><br>
+            Password: <input>
+        </form>
+    </div>
+</div>
+<script>
+    <?php 
+        if ($display_modal_window == 'none') ;
+        else if ($$display_modal_window == 'signin') echo 'show_signin();';
+        else ;
+    ?>
+    function show_signin() {
+        document.getElementById('tr-1-modal').style.display = 'block';
+    }
+</script>
+                            
+
+----------------------------
+
+TRIAL 2
+
+<?php
+    // In Controller,
+    
+    // When username and password are not valid,
+    $error_msg_username = '* Wrong username, or';
+    $error_msg_password = '* Wrong password';
+    $display_modal_window = 'signin';  // Let's pass 'signin' with the above error message variables.
+    // include ('view_startpage.php');  // Let's assume the file is included. 
+    // exit();
+?>
+<!-- The code included from 'view_startpage.php' -->
+<div style='width=400px; height:300px; border:1px solid black;'>
+    <h1>TRU Messenger</h1>
+    <div id='tr-2-modal' style='width:300px; height:200px; border:1px solid blue; display:none; margin:10px;'>
+        <h2>Sign In</h2>
+        <form>
+            Username: <input><?php if (!empty($error_msg_username)) echo $error_msg_username; ?><br>  <!-- Only when the error message variable is not empty -->
+            Password: <input><?php if (!empty($error_msg_password)) echo $error_msg_password; ?>
+        </form>
+    </div>
+</div>
+<script>
+    <?php 
+        if ($display_modal_window == 'none') ;
+        else if ($display_modal_window == 'signin') echo 'show_signin();';
+        else ;
+    ?>
+    function show_signin() {
+        document.getElementById('tr-2-modal').style.display = 'block';
+    }
+</script>
+
+----------------------------
+
+TRIAL 3
+
+<form id="form" method="POST" action="controller_1234.php">
+    <input type='hidden' name='page' value='MainPage'>
+    <input type="hidden" name="command" value='SignOut'>
+</form>
+<img id="submit-image" src='user.png' width='30px' height='30px'>
+<script>
+    document.getElementById("submit-image").addEventListener("click", function () {
+        document.getElementById("form").submit();
+    });
+</script>
+
+----------------------------
