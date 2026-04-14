@@ -29,7 +29,7 @@
     <?php if (!empty($semester)) { ?>
       <?php include 'components/rubrik_panels.php' ?>
     <?php } ?>
-    <img src="/media/bauhaus-right.webp" id="bauhaus-right" />
+    <img src="media/bauhaus-right.webp" id="bauhaus-right" />
   </div>
   <button id="user-account"><img src="media/user.webp" /></button>
   <button id="save-changes"><img src="media/sync.png" /></button>

@@ -35,7 +35,7 @@
     </div>
 
     <div id="wrapper">
-      <img src="/media/bauhaus-left.webp" id="bauhaus-left" />
+      <img src="media/bauhaus-left.webp" id="bauhaus-left" />
       <div class="content">
         <img id="logo" src="media/logo.webp" />
         <div id="buttons">
@@ -43,7 +43,7 @@
           <button class="user-button" id="signup-button">Sign Up</button>
         </div>
       </div>
-      <img src="/media/bauhaus-right.webp" id="bauhaus-right" />
+      <img src="media/bauhaus-right.webp" id="bauhaus-right" />
     </div>
     <script>
       $("#login-button").click(function () {
