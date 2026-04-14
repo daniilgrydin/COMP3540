@@ -1,0 +1,17 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#tr2-but').click(function() {
+            $("#tr2-res").text(
+                Number($("#tr2-op1").val()) + Number($("#tr2-op2").val())
+            );
+        });
+    });
+</script>
+
+Operand 1: <input id="tr2-op1" type="number"><br>
+Operand 2: <input id="tr2-op2" type="number"><br>
+Operation: <button id="tr2-but">Add</button><br>
+Result: <p id="tr2-res"></p>
+                      

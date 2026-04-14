@@ -1,0 +1,105 @@
+/* Dropdown Button */
+.dropbtn {
+  display: block;
+  background-color: var(--cherry);
+  color: var(--sugar);
+  border-radius: 12px;
+  font-size: medium;
+  cursor: pointer;
+  corner-shape: squircle;
+  outline: 2px solid var(--raisin);
+  outline-offset: -2px;
+  -webkit-box-shadow: 0px 8px 0px 0px var(--raisin);
+  box-shadow: 0px 8px 0px 0px var(--raisin);
+  color: var(--sugar);
+  text-align: center;
+  /* height: 32px; */
+  height: 100%;
+}
+
+.additive {
+  height: 32px;
+}
+
+.dropbtn:hover {
+  color: var(--apple);
+}
+
+.dropbtn:active {
+  color: var(--apple);
+  outline: 2px solid var(--apple);
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--mint);
+  border-radius: 0 0 12px 12px;
+  font-size: medium;
+  cursor: pointer;
+  corner-shape: squircle;
+  outline: 2px solid var(--raisin);
+  -webkit-box-shadow: 0px 8px 0px 0px var(--raisin);
+  box-shadow: 0px 8px 0px 0px var(--raisin);
+  text-align: center;
+  z-index: 2;
+  max-height: 164px;
+  overflow-y: auto;
+}
+
+.additive.dropdown>.dropdown-content{
+    right: 12px;
+}
+
+:not(.additive).dropdown>.dropdown-content{
+    left: 6px;
+}
+
+/* 
+:not(.additive).dropdown{
+    width:100%;
+} */
+
+/* Links inside the dropdown */
+.dropdown-content > a {
+  padding: 3px 4px;
+  text-decoration: none;
+  display: block;
+  color: var(--sugar);
+  text-align: left;
+}
+
+:not(.additive).dropdown > button {
+  padding: 4px 12px;
+}
+
+.additive > .dropdown-content > a {
+  text-align: right;
+}
+
+.additive > .dropdown-content > a:last-of-type {
+  text-align: center;
+  border-top: 1px dashed var(--raisin);
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content > a:hover {
+  color: var(--apple);
+}
+.dropdown-content > a:active,
+.dropdown-content > a.selected {
+  background-color: var(--apple);
+  color: var(--raisin);
+}
+
+/* Show the dropdown menu */
+.show {
+  display: block;
+}

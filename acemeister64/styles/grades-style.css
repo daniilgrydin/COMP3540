@@ -1,0 +1,321 @@
+#user-account {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 20vh;
+  border-radius: 0 0 0 20vh;
+  aspect-ratio: 1;
+  background-color: #00000000;
+}
+#user-account:active {
+  outline: 0;
+}
+
+#user-account > * {
+  position: inherit;
+  top: 8%;
+  right: 8%;
+  width: 66%;
+  height: 66%;
+}
+
+#save-changes > * {
+  position: inherit;
+  bottom: 8%;
+  right: 8%;
+  width: 66%;
+  height: 66%;
+}
+
+#save-changes {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 20vh;
+  border-radius: 0 0 0 20vh;
+  aspect-ratio: 1;
+  background-color: #00000000;
+}
+#save-changes:active {
+  outline: 0;
+}
+
+.left-panel {
+  /* background-color: aqua; */
+  width: 25%;
+  grid-template-rows: 30% 70%;
+  border-right: 2px dashed var(--raisin);
+  text-align: center;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.field > p {
+  margin-right: 10px;
+  width: 60%;
+  text-align: right;
+}
+
+.center-panel {
+  /* background-color: red; */
+  width: 30%;
+  grid-template-rows: 10% 90%;
+  text-align: center;
+}
+
+.right-panel {
+  /* background-color: green; */
+  width: 20%;
+  grid-template-rows: 13% 20%;
+  text-align: center;
+}
+
+#course-selection {
+  /* background-color: pink; */
+  width: 100%;
+  border-bottom: 2px dashed var(--raisin);
+}
+
+#course-summary {
+  /* background-color: yellow; */
+  width: 100%;
+  display: table;
+}
+
+#course-summary > h2 {
+  margin-top: 20px;
+  cursor: text;
+  border-radius: 6px;
+  padding: 4px 8px;
+  transition: all 0.2s ease;
+  outline: none;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  line-height: 1.2;
+}
+
+#course-summary > h2:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#course-summary > h2:focus {
+  background-color: var(--apple);
+  box-shadow: 0px 0px 0px 2px var(--raisin);
+}
+
+canvas {
+  background: #222;
+  border-radius: 8px;
+  margin-top: 20px;
+  height: 180px;
+  aspect-ratio: 1;
+}
+
+.grade-card {
+  /* background-color: cyan; */
+  display: flex;
+  margin-top: 24px;
+  gap: 0px;
+}
+
+.grade-card > .content {
+  display: flex;
+  flex-direction: column; /* ← stack vertically */
+  gap: 0;
+
+  flex: 0 0 auto; /* don't grow */
+  background-color: var(--apple);
+  padding: 0;
+  color: var(--sugar);
+  border-radius: 12px;
+  font-size: medium;
+  overflow: hidden;
+  outline: 2px solid var(--raisin);
+  outline-offset: -2px;
+  box-shadow: 0px 8px 0px 0px var(--raisin);
+  text-align: center;
+  width: 90%;
+}
+
+.grade-card > .content > .row {
+  display: flex; /* ← inputs side by side */
+  gap: 8px;
+  padding: 0 20px;
+  align-items: center;
+}
+
+.grade-card > button {
+  flex: 1;
+  font-size: medium;
+  text-align: center;
+  background-color: transparent;
+  color: var(--raisin);
+  border: none;
+}
+
+.row input:not(.numerical) {
+  flex: 1; /* name stretches */
+}
+
+.row .numerical {
+  width: 40px;
+}
+
+.grade-card > .content input {
+  height: 32px;
+  background-color: transparent;
+  padding: 4px 0px;
+}
+
+.progress-bar {
+  height: 8px;
+  width: 100%;
+  background-color: var(--mint);
+}
+
+.progress-bar > .progress {
+  height: 100%;
+  width: 70%;
+  background-color: var(--cherry);
+}
+
+#rubricator {
+  display: table;
+  gap: 10px;
+  width: 100%;
+  /* background-color: blue; */
+}
+
+/* *SUBCARD* */
+
+.grade-subcard {
+  /* background-color: cyan; */
+  height: fit-content;
+}
+
+.grade-subcard > .content {
+  grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  overflow: hidden;
+  width: calc(100% - 48px);
+  padding: 0;
+  display: block;
+  color: var(--sugar);
+  border-radius: 12px;
+  font-size: medium;
+  text-align: center;
+  width: 100%;
+}
+
+.grade-subcard > .content > input {
+  height: 24px;
+  background-color: transparent;
+  padding: 4px 0px;
+  width: 50%;
+}
+
+.grade-subcard > .content > input.numerical {
+  width: 40px;
+}
+
+.subcard-status {
+  height: 100%;
+  width: 8px;
+  float: left;
+  background-color: var(--cherry);
+}
+
+#subrubricator {
+  display: table;
+  gap: 10px;
+  width: 100%;
+  /* background-color: blue; */
+  border: 2px dashed var(--raisin);
+}
+
+#course-selection a {
+  display: block;
+  padding: 6px 10px;
+  margin: 4px 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+.course-item {
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+}
+
+.course-item .delete-course-btn {
+  background-color: var(--cherry);
+  color: var(--sugar);
+  border: 2px solid var(--raisin);
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  margin-right: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0px 2px 0px 0px var(--raisin);
+  flex-shrink: 0;
+}
+
+.course-item .delete-course-btn:hover {
+  background-color: var(--raisin);
+  color: var(--cherry);
+  transform: translateY(1px);
+  box-shadow: 0px 1px 0px 0px var(--raisin);
+}
+
+.course-item .delete-course-btn:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.course-item a {
+  flex: 1;
+  padding: 6px 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+#course-selection a.selected-course::before {
+  content: "";
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 30%;
+  background: var(--apple);
+  z-index: -1;
+  border-radius: 3px;
+}
+
+.delete-btn {
+  background-color: transparent;
+  color: var(--cherry);
+  border: 0;
+  padding: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 0;
+}
+
+#course-summary,
+.center-panel,
+.right-panel {
+  display: none;
+}

@@ -1,0 +1,80 @@
+⋆ ⭒ ˚ ｡ ✧ ˖ ° -| Trial E1 |- ° ˖ ✧ ｡ ˚ ⭒ ⋆
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<form id="tr1-form" method="POST" action="test_display_inputs.php">
+  <input type="hidden" name="page" value="MainPage" />
+  <input type="hidden" name="command" value="SignOut" />
+</form>
+
+<script>
+  var timeout;
+
+  function restartTimer() {
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      $("#tr1-form").submit();
+    }, 10000);
+  }
+
+  $(document).ready(function () {
+    $(document).mousemove(restartTimer);
+  });
+</script>
+
+
+
+⋆ ⭒ ˚ ｡ ✧ ˖ ° -| Trial E2 |- ° ˖ ✧ ｡ ˚ ⭒ ⋆
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#tr2-but').click(function() {
+            $("#tr2-res").text(
+                Number($("#tr2-op1").val()) + Number($("#tr2-op2").val())
+            );
+        });
+    });
+</script>
+
+Operand 1: <input id="tr2-op1" type="number"><br>
+Operand 2: <input id="tr2-op2" type="number"><br>
+Operation: <button id="tr2-but">Add</button><br>
+Result: <p id="tr2-res"></p>
+
+
+
+⋆ ⭒ ˚ ｡ ✧ ˖ ° -| Trial E3 |- ° ˖ ✧ ｡ ˚ ⭒ ⋆
+
+<div id='tre3-result'></div>
+<script>
+{
+    let msg = [
+        {Id:23, message:"If it's working don't change it"},
+        {Id:24, message:"What about me"},
+    ];
+    let str = "<table>";
+
+    str += "<tr>";
+    str += "<td>" + msg[0].message + "</td>";
+    str += "<td><button data-id=\"" + msg[0].Id + "\" class='tr3-but'> Delete </button></td>";
+    str += "</tr>";
+
+    str += "<tr>";
+    str += "<td>" + msg[1].message + "</td>";
+    str += "<td><button data-id=\"" + msg[1].Id + "\" class='tr3-but'> Delete </button></td>";
+    str += "</tr>";
+
+    str += "</table>";
+    
+    // display the above table code in the above <div>
+    $(document).ready(function() {
+        $("#tre3-result").html(str);
+
+        $(".tr3-but").click(function() {
+            alert($(this).attr("data-id"));
+        });
+    });
+}
+</script>

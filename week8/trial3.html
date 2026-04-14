@@ -1,0 +1,32 @@
+<div id='tre3-result'></div>
+<script>
+{
+    let msg = [
+        {Id:23, message:"If it's working don't change it"},
+        {Id:24, message:"What about me"},
+    ];
+    let str = "<table>";
+
+    str += "<tr>";
+    str += "<td>" + msg[0].message + "</td>";
+    str += "<td><button data-id=\"" + msg[0].Id + "\" class='tr3-but'> Delete </button></td>";
+    str += "</tr>";
+
+    str += "<tr>";
+    str += "<td>" + msg[1].message + "</td>";
+    str += "<td><button data-id=\"" + msg[1].Id + "\" class='tr3-but'> Delete </button></td>";
+    str += "</tr>";
+
+    str += "</table>";
+    
+    // display the above table code in the above <div>
+    $(document).ready(function() {
+        $("#tre3-result").html(str);
+
+        $(".tr3-but").click(function() {
+            alert($(this).attr("data-id"));
+        });
+    });
+}
+</script>
+                            

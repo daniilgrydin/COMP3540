@@ -1,0 +1,122 @@
+⋆ ⭒ ˚ ｡ ✧ ˖ ° -| Trial E1 |- ° ˖ ✧ ｡ ˚ ⭒ ⋆
+
+<?php
+function check_password($pass){
+    $pattern = "/^(?=\d)(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{7,}$/";
+    return(preg_match($pattern, $pass));
+}
+
+$password1 = "Abc123*";
+$password2 = "123A*";
+$password3 = "9Hmmmmm*";
+
+if (check_password($password1)) 
+    echo $password1 . ' Match<br>';
+else 
+    echo $password1 . ' Not match<br>';
+
+if (check_password($password2)) 
+    echo $password2 . ' Match<br>';
+else 
+    echo $password2 . ' Not match<br>';
+
+if (check_password($password3)) 
+    echo $password3 . ' Match<br>';
+else 
+    echo $password3 . ' Not match<br>';
+?>
+
+⋆ ⭒ ˚ ｡ ✧ ˖ ° -| Trial E2 |- ° ˖ ✧ ｡ ˚ ⭒ ⋆
+
+<p id = 'tr2-memo'>Anxiety weighs down the heart, but a kind word cheers it up.</p>
+<button id = 'tr2-add'>Add a memo</button>
+
+<script>
+function add_memo(memo) {  // This function add a memo into the local storage named "memos".
+    let memos = localStorage.getItem("memos");
+    if(memos == null) {memos = [];}
+    else { memos = JSON.parse(memos); }
+    
+    memos.push(memo);
+    alert(memos);
+
+    localStorage.setItem("memos", JSON.stringify(memos));
+}
+
+$("#tr2-add").click(function() {
+    add_memo($("#tr2-memo").text());  // invoke the function above
+});
+</script>                            
+
+⋆ ⭒ ˚ ｡ ✧ ˖ ° -| Trial E3 |- ° ˖ ✧ ｡ ˚ ⭒ ⋆
+
+<p id = 'tr3-memo'>Rejoice always.</p>
+<div id = 'tr3-memos'>Memos here!</div>
+<br>
+<button id = 'tr3-read'>Read memos</button>
+
+<script>
+function read_memos() {
+    let memos = localStorage.getItem("memos");
+    if (memos == null) {
+        return [];
+    }
+    return JSON.parse(memos);
+}
+
+$("#tr3-read").click(function() {
+    let memos = read_memos();  // invoke the function above
+    memos = JSON.stringify(memos);  // convert memos to string
+    $("#tr3-memos").text(memos);
+});
+</script>                            
+
+⋆ ⭒ ˚ ｡ ✧ ˖ ° -| Trial E4 |- ° ˖ ✧ ｡ ˚ ⭒ ⋆
+
+<p id = 'tr4-memo' draggable="true" ondragstart='dragStart(event)'>
+    Whoever pursues righteousness and love finds life, prosperity and honor.
+</p>
+<div id = 'tr4-memo-drop-zone' style='border:1px solid black; width:400px; height:200px;' ondragover='dragOver(event)' ondrop='drop(event)'>
+    Drop a memo here!
+</div>
+<br>
+
+<script>
+// functions in Trials E2 and E3
+function add_memo(memo) {  // This function add a memo into the local storage named "memos".
+    let memos = localStorage.getItem("memos");
+    if(memos == null) {memos = [];}
+    else { memos = JSON.parse(memos); }
+    
+    memos.push(memo);
+
+    localStorage.setItem("memos", JSON.stringify(memos));
+}
+
+function read_memos() {
+    let memos = localStorage.getItem("memos");
+    if (memos == null) {
+        return [];
+    }
+    return JSON.parse(memos);
+}
+
+function dragStart(eobj) {
+    eobj.dataTransfer.setData("text", eobj.target.id);
+}
+
+function dragOver(eobj) {
+    eobj.preventDefault();
+}
+
+function drop(eobj) {
+    eobj.preventDefault();
+
+    let id = eobj.dataTransfer.getData("text");
+    let content = document.getElementById(id).textContent;
+
+    add_memo(content);
+
+    alert(read_memos());  
+}
+</script>

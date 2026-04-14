@@ -1,0 +1,123 @@
+⋆ ⭒ ˚ ｡ ✧ ˖ ° -| E1 |- ° ˖ ✧ ｡ ˚ ⭒ ⋆
+
+<?php
+$conn = mysqli_connect("localhost", "T00712793", "T00712793136", "C354_T00712793");
+
+function check_user($username) {  
+    global $conn;
+    $sql = "SELECT * FROM Users WHERE Username = '$username'";
+    $result = mysqli_query($conn, $sql);
+    return(mysqli_num_rows($result)>0);
+}
+    
+// ---------------------------
+
+$username = "jdoe";
+
+$result = check_user($username);
+
+if ($result)
+    echo "The username exists.<br>";
+else
+    echo "The username does not exist.<br>";
+?>
+                            
+⋆ ⭒ ˚ ｡ ✧ ˖ ° -| E2 |- ° ˖ ✧ ｡ ˚ ⭒ ⋆
+
+<?php
+$conn = mysqli_connect("localhost", "T00712793", "T00712793136", "C354_T00712793");
+
+function check_user($username) {  
+    global $conn;
+    $sql = "SELECT * FROM Users WHERE Username = '$username'";
+    $result = mysqli_query($conn, $sql);
+    return(mysqli_num_rows($result)>0);
+}
+
+function create_user($username, $password, $email){
+    global $conn;
+    if(check_user($username)) return false;
+    $date = date("Y-m-d");
+    $sql = "INSERT INTO Users (Username, Password, Email, Date) VALUES ('$username', '$password', '$email', '$date')";
+    $result = mysqli_query($conn, $sql);
+    return true;
+}
+    
+// ---------------------------
+
+$username = "jdoe";
+$password = "wonderfulworld";
+$email = "jdoe@tru.ca";
+
+$result = create_user($username, $password, $email);
+
+if ($result)
+    echo "Succeeded<br>";
+else
+    echo "Failed<br>";
+?>
+                    
+⋆ ⭒ ˚ ｡ ✧ ˖ ° -| E3 |- ° ˖ ✧ ｡ ˚ ⭒ ⋆
+
+<?php
+$conn = mysqli_connect("localhost", "T00712793", "T00712793136", "C354_T00712793");
+
+function check_password($username, $password){
+    global $conn;
+    $sql = "SELECT Password FROM Users WHERE Username = '$username'";
+    $result = $conn->query($sql);
+    if($result->num_rows == 0) return false;
+    $row = $result->fetch_assoc();
+    $password_stored = $row['Password'];
+    return($password_stored == $password);
+}
+    
+// ---------------------------
+
+$username = "jdoe";
+$password = "secret";
+
+$result = check_password($username, $password);
+
+if ($result)
+    echo "Valid<br>";
+else
+    echo "Invalid<br>";
+?>      
+
+⋆ ⭒ ˚ ｡ ✧ ˖ ° -| E4 |- ° ˖ ✧ ｡ ˚ ⭒ ⋆
+
+<?php
+$conn = mysqli_connect("localhost", "T00712793", "T00712793136", "C354_T00712793");
+
+function check_password($username, $password){
+    global $conn;
+    $sql = "SELECT Password FROM Users WHERE Username = '$username'";
+    $result = $conn->query($sql);
+    if($result->num_rows == 0) return false;
+    $row = $result->fetch_assoc();
+    $password_stored = $row['Password'];
+    return($password_stored == $password);
+}
+
+function delete_user($username, $password){
+    global $conn;
+    if(!check_password($username, $password)) return false;
+    $sql = "DELETE from Users WHERE Username = '$username'";
+    mysqli_query($conn, $sql);
+    return true;
+}
+    
+// ---------------------------
+
+$username = "jdoe";
+$password = "wonderfulworld";
+
+$result = delete_user($username, $password);
+
+if ($result)
+    echo "Deleted<br>";
+else
+    echo "Not deleted<br>";
+?>
+                           
